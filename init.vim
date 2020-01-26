@@ -32,6 +32,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-easy-align'
 "HTML"
 Plug 'mattn/emmet-vim'
+"python自动补全"
+
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 "Plug 'numirias/semshi', {'do' : ':UpdateRemotePlugins'}"
 Plug 'altercation/vim-colors-solarized'
@@ -42,8 +46,7 @@ call plug#end()
 "let g:deoplete#enable_at_startup = 1"
 
 "Python插件"
-let g:python3_host_prog='C:/Users/wuxi/Envs/neovim3/Scripts/python.exe'
-let g:python3_host_prog='C:/Users/wuxi/Envs/neovim3/Scripts/python.exe'
+
 
 let g:SimpylFold_docstring_preview=1
 let g:SimpylFold_fold_docstring=1
@@ -52,6 +55,7 @@ let g:SimpylFold_fold_import=1
 let b:SimpylFold_fold_import=1
 "关于状态栏的小配置"
 let g:airline_powerline_fonts = 1
+
 
 "设置编码"
 set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
@@ -79,7 +83,7 @@ set noexpandtab
 "在行和段开始处使用制表符"
 set smarttab
 "设置粘贴模式"
-set paste
+"set paste
 "显示状态栏和光标当前位置"
 set laststatus=2
 "命令行（在状态行下）的高度，默认为1，这里是2"
@@ -137,6 +141,12 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 set scrolloff=3
 "为C程序提供自动缩进"
 set smartindent
+"标题"
+set title
+set titlestring=
+set titlestring+=%(%{hostname()}\ \ %)
+set titlestring+=%(%{expand('%:p')}\ \ %)
+set titlestring+=%{strftime('%Y-%m-%d\ %H:%M',getftime(expand('%')))}
 
 "主题"
 "colorscheme gruvbox"
@@ -146,7 +156,7 @@ colorscheme onedark
 noremap T :NERDTree<CR>
 noremap ,l :sp<CR><C-w>j:term ipython<CR> i %run 
 noremap R :source ~/AppData/Local/nvim/init.vim<CR>
-au filetype python noremap <f6> <C-w>k :only<CR>
+au filetype python noremap <f6> <C-w>j :close<CR>
 
 
 
